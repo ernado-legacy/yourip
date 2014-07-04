@@ -24,6 +24,6 @@ func main() {
 	addr := fmt.Sprintf("%s:%d", *host, *port)
 	log.Println("listening on", addr)
 	router := httprouter.New()
-	httprouter.New().GET(*prefix, PrintIp)
+	router.GET(*prefix, PrintIp)
 	log.Fatal(http.ListenAndServe(addr, router))
 }
