@@ -11,11 +11,11 @@ import (
 var (
 	port = flag.Int("port", 80, "port")
 	host = flag.String("host", "", "host")
-	prefix = flag.String("prefix", "/", "uri prefix")
+	prefix = flag.String("prefix", "/ip", "uri prefix")
 )
 
 func PrintIp(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, r.RemoteAddr)
+	fmt.Fprint(w, r.Header.Get("X-Real-IP"))
 }
 
 
