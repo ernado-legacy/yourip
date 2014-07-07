@@ -18,7 +18,6 @@ func PrintIp(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, r.Header.Get("X-Real-IP"))
 }
 
-
 func main() {
 	flag.Parse()
 	addr := fmt.Sprintf("%s:%d", *host, *port)
